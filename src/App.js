@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Header from "./components/Header/Header";
 import TodoList from "./components/TodoList/TodoList";
+import './App.css'
+import { DarkModeProvider } from "./context/DarkModeContext";
 
 
 
@@ -13,10 +15,12 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Header filters={filters} filter={filter} onFilterChange={setFilter}/>
-      <TodoList filter={filter}/>
-    </div>
+    <DarkModeProvider>
+      <div className="App">
+        <Header filters={filters} filter={filter} onFilterChange={setFilter}/>
+        <TodoList filter={filter}/>
+      </div>
+    </DarkModeProvider>
   );
 }
 
